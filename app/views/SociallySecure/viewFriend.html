@@ -1,0 +1,20 @@
+#{extends 'main.html' /}
+#{set title:'View friend' /}
+
+#{set 'moreScripts'}
+<script>
+$(function() {
+	$(document).ready(function() {
+        $('.scrollable').scrollable({ vertical: true, mousewheel: true, circular:true })
+                .autoscroll({ autoplay: true, interval:2000  });
+    });
+});
+</script>
+#{/set}
+
+<div>
+    <img src="${friend.user.avatarUrl}"/>
+    <h3>${friend.user.displayName}</h3>
+</div>
+
+#{tweets tweets:tweets /}

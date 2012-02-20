@@ -1,0 +1,14 @@
+#{extends 'main.html' /}
+#{set title:'Find friends' /}
+
+<h3>Search results</h3>
+
+#{if potentialFriends.isEmpty()}
+    <p>No results found</p>
+#{/if}
+#{else}
+#{list items:potentialFriends, as:'potentialFriend'}
+#{user user:potentialFriend /}
+#{/list}
+#{/else}
+

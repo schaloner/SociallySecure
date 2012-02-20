@@ -1,0 +1,28 @@
+#{extends 'main.html' /}
+#{set title:'Friends' /}
+
+<table class="formTable">
+    <tr>
+        <td colspan="3" class="formHeader">Find friends</td>
+    </tr>
+    <tr>
+        <form method="post" action="@{SociallySecure.findFriends()}">
+            <td>
+                Search for
+            </td>
+            <td>
+                <input id="friendSearchTerm" type="text" name="searchTerm"/>
+            </td>
+            <td>
+                <input id="searchForFriends" type="submit" value="Search"/>
+            </td>
+        </form>
+    </tr>
+</table>
+
+#{list items:friends, as:'friend'}
+<div class="user">
+    <div><a href="@{SociallySecure.viewFriend(friend.id)}"><img src="${friend.user.avatarUrl}"/></a></div>
+    <div><a href="@{SociallySecure.viewFriend(friend.id)}">${friend.user.displayName}</a></div>
+</div>
+#{/list}

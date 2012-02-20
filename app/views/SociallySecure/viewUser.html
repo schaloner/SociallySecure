@@ -1,0 +1,21 @@
+#{extends 'main.html' /}
+#{set title:'View friend' /}
+
+#{set 'moreScripts'}
+<script>
+$(function() {
+	$(document).ready(function() {
+        $('.scrollable').scrollable({ vertical: true, mousewheel: true, circular:true })
+                .autoscroll({ autoplay: true, interval:2000  });
+    });
+});
+</script>
+#{/set}
+
+<div>
+    <img src="${user.avatarUrl}">${user.displayName}</img>
+</div>
+
+#{deadbolt.restrictedResource resourceKeys:['userTweets'], resourceParameters:['otherUserId':''+user.id]}
+#{tweets tweets:tweets /}
+#{/deadbolt.restrictedResource}

@@ -1,0 +1,19 @@
+#{extends 'main.html' /}
+#{set title:'Create account' /}
+
+<form method="post" action="@{RootController.doCreateAccount}">
+    <table>
+        <tr>
+            <td>Please choose a user name</td>
+            <td>
+                <input type="text" name="userName" value="${flash.get('userName')}"/>
+                <span class="error">#{error 'userName' /}</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Create account"/>
+            </td>
+        </tr>
+    </table>
+</form>

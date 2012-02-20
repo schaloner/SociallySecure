@@ -1,0 +1,17 @@
+#{if _tweets}
+<div class="scrollable vertical">
+    <div class="items tweets">
+        #{list items:utils.CollectionUtils.split(_tweets, 3), as:'splitTweetLists'}
+        <div>
+            #{list items:splitTweetLists, as:'tweet'}
+
+            <div class="item">
+                *{ Do not read the following line aloud when in company }*
+                #{tweet tweet:tweet /}
+            </div>
+            #{/list}
+        </div>
+        #{/list}
+    </div>
+</div>
+#{/if}

@@ -1,0 +1,56 @@
+#{extends 'main.html' /}
+#{set title:'Linked accounts' /}
+
+#{if !providerTypes?.isEmpty()}
+<table>
+    <tr>
+        <td colspan="3">Add new linked account</td>
+    </tr>
+    <tr>
+        <form method="post" action="@{SociallySecure.newLinkedAccount()}">
+            <td>Service:</td>
+            <td>
+                <select name="provider">
+                    #{list items:providerTypes, as:'providerType'}
+                    <option value="${providerType}">${providerType}</option>
+                    #{/list}
+                </select>
+            </td>
+            <td>
+                <input type="submit" value="Go!"/>
+            </td>
+        </form>
+    </tr>
+</table>
+#{/if}
+
+<table>
+    #{list items:linkedAccounts.entrySet(), as:'linkedAccount'}
+    %{ account = linkedAccount.getValue() }%
+    <tr>
+        <td>${account.provider}</td>
+        <td><img src="${account.avatarUrl}"/></td>
+        <td>${account.displayName}</td>
+    </tr>
+    #{/list}
+</table>
+
+#{if twitter}
+<table class="formTable">
+    <tr class="formHeader">
+        <td colspan="3">Tweet visibility</td>
+    </tr>
+    <tr>
+        <form method="post" action="@{SociallySecure.updateTweetVisibility}">
+            <td>Tweets publicly visible</td>
+            <td>
+                <select name="tweetsPubliclyVisible">
+                    <option value="false" ${twitter.security.publiclyVisible ? '' : 'selected'}>False</option>
+                    <option value="true" ${twitter.security.publiclyVisible ? 'selected' : ''}>True</option>
+                </select>
+            </td>
+            <td><input type="submit" value="Update"/></td>
+        </form>
+    </tr>
+</table>
+#{/if}

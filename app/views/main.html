@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>SociallySecure :: #{get 'title'/}</title>
+        <meta charset="${_response_encoding}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+        <link rel="stylesheet" href="@{'/public/stylesheets/1140/1140.css'}" type="text/css" media="screen" />
+        <!--[if lte IE 9]><link rel="stylesheet" href="@{'/public/stylesheets/1140/ie.css'}" type="text/css" media="screen" /><![endif]-->
+        #{get 'moreStyles' /}
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+        <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        <script type="text/javascript" src="@{'/public/javascripts/css3-mediaqueries.js'}"></script>
+        <script type="text/javascript" src="@{'/public/javascripts/jquery.tools-1.2.6.min.js'}"></script>
+        #{get 'moreScripts' /}
+    </head>
+    <body>
+    <div class="container">
+        <div class="row">
+            <div class="twocol">
+                <img src="@{'/public/images/logo.png'}" title="SociallySecure"/>
+                #{deadbolt.roleHolderPresent}
+                <div class="menuUser">
+                    <img src="${avatarUrl}"/>
+                    <div>${displayName}</div>
+                </div>
+                <ul>
+                    <li><a href="@{SociallySecure.index()}">Home</a></li>
+                    <li><a href="@{SociallySecure.friends()}">Friends</a></li>
+                    <li><a href="@{SociallySecure.linkedAccounts()}">Linked accounts</a></li>
+                    <li>About</li>
+                    <li><a href="@{RootController.logout()}">Log out</a></li>
+                </ul>
+                #{/deadbolt.roleHolderPresent}
+            </div>
+            <div class="tencol last contentArea">
+                #{doLayout /}
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

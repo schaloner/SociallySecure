@@ -1,0 +1,116 @@
+div.menuUser {
+    text-align: center
+}
+a {
+    text-decoration: none;
+    color: #000055;
+}
+
+ul {
+    list-style: none
+}
+
+img {
+    vertical-align: middle;
+}
+
+div.tweets {
+    width: 550px
+}
+
+.user {
+    border: 1px solid #666666;
+    margin: 2px;
+    padding: 2px;
+}
+
+.formTable {
+    border: solid 1px #000000;
+    margin: 10px;
+}
+
+.formHeader {
+    background-color: #ddffdd;
+    font-weight: bold;
+}
+
+div.tweetOuter {
+    border: 1px solid #000000;
+    background-color: #666666;
+    margin: 2px;
+    padding: 2px;
+    border-radius: 5px
+}
+
+div.tweetOuter:hover {
+    background-color: #bbbbbb;
+}
+
+div.tweetInner {
+    border: 1px solid #666666;
+    background-color: #ffffff;
+    margin: 2px;
+    padding: 4px;
+}
+
+div.tweetText {
+    text-align: justify;
+}
+
+div.tweetAuthorInfo {
+    text-align: right;
+    border-top:  1px solid #666666;
+    padding-top: 1px;
+}
+
+
+
+/* 1140 grid */
+/* ============================== */
+/* ! Layout for desktop version   */
+/* ============================== */
+body {
+
+}
+
+/* ============================= */
+/* ! Layout for mobile version   */
+/* ============================= */
+
+@media handheld, only screen and (max-width: 767px) {
+    body {
+
+    }
+}
+
+/* ========================================== */
+/* ! Provide higher res assets for iPhone 4   */
+/* ========================================== */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+
+    /*	.logo {
+         background: url(logo2x.jpg) no-repeat;
+         background-size: 212px 303px;
+     }*/
+
+}
+
+.scrollable {
+
+    /* required settings */
+    position:relative;
+    overflow:hidden;
+
+    /* vertical scrollables have typically larger height than width but not now */
+    height: 665px;
+    width: 700px;
+}
+
+/* root element for scrollable items */
+.scrollable .items {
+    position:absolute;
+
+    /* this time we have very large space for the height */
+    height:20000em;
+}
