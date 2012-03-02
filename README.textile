@@ -1,0 +1,26 @@
+h1. SociallySecure
+
+SociallySecure is a Play application that demonstrates an integration between SecureSocial
+(http://www.playframework.org/modules/securesocial), an authentication module, and Deadbolt, an authorization module.
+
+It's still in development, and doesn't look particularly pretty, but it's getting there slowly.
+
+
+h2. Using SociallySecure
+
+For the moment, only one workflow is supported.
+
+* Log in using Twitter.  SecureSocial handles this, and retrieves your details from Twitter.
+* You can now link your facebook account.  Again, SecureSocial handles the details.
+* Once you've taken these two steps, you can log into SociallySecure using either of these two accounts.
+
+
+h2. OK, what can I do now?
+
+Try searching for other users (the search is very simple - it just works on the display name of other people)
+
+From this point on, Deadbolt is handling the authorization dynamically.
+
+* If that person has declared their tweets to be publically visible, you will see them when you view their account.  If their tweets are private, you won't see them.
+* Add the person as a friend.  They can now see your tweets.
+* If someone adds you as a friend, you can see their tweets.
